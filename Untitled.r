@@ -1,0 +1,137 @@
+
+> #LISTA DE EXERCÍCIOS 2
+> 
+> #Exercício nº01
+> 
+> urlfile <- "https://raw.githubusercontent.com/edsonzmartinez/cursoR/main/Dados_jogadores.csv"
+> jog <- read.csv2(urlfile)
+> 
+> #(a)
+> 
+> mean(dados$idade)
+Error: object 'dados' not found
+> mean(jog$idade)
+[1] 26.91304
+> 
+> sd(jog$idade)
+[1] 3.146615
+> 
+> median(jog$idade)
+[1] 27
+> 
+> •	max(jog$idade)
+Error: unexpected input in "•"
+> range(jog$idade)
+[1] 22 33
+> 
+> IQR(jog$idade)
+[1] 3.5
+> 
+> 
+> #b
+> 
+> mean(jog_mais25$altura)
+Error: object 'jog_mais25' not found
+> jog_mais25 <- jog[jog$idade > 25, ]
+> mean(jog_mais25$altura)
+[1] 178.6923
+> 
+> sd(jog_mais25$altura)
+[1] 8.035179
+> 
+> 
+> #c
+> 
+> •	mean(jog$altura[jog$posicao == "A"])
+Error: unexpected input in "•"
+> tapply(jog$altura, jog$posicao, mean)
+       A        D        G        M 
+175.0000 180.7500 184.0000 174.3333 
+> 
+> tapply(jog$altura, jog$posicao, sd)
+       A        D        G        M 
+4.358899 8.430387 4.000000 3.872983 
+> 
+> tapply(jog$altura, jog$posicao, median)
+  A   D   G   M 
+173 180 184 173 
+> 
+> 
+> #d
+> 
+> cor.test(jog$idade, jog$altura, method = "pearson")
+
+	Pearson's product-moment correlation
+
+data:  jog$idade and jog$altura
+t = 1.0435, df = 21, p-value = 0.3086
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2093249  0.5810572
+sample estimates:
+      cor 
+0.2220354 
+
+> 
+> #e
+> 
+> table(jog$posicao)
+
+A D G M 
+3 8 3 9 
+> 
+> prop.table(freq_abs)
+Error: object 'freq_abs' not found
+> freq_rel <- prop.table(freq_abs)
+Error: object 'freq_abs' not found
+> freq_abs
+Error: object 'freq_abs' not found
+> freq_abs <- table(jog$posicao)
+> freq_rel <- prop.table(freq_abs)
+> freq_abs
+
+A D G M 
+3 8 3 9 
+> freq_rel
+
+        A         D         G         M 
+0.1304348 0.3478261 0.1304348 0.3913043 
+> 
+> 
+> #f
+> 
+> intervalos <- cut(
++ jog$idade,
++ right = TRUE
++ table(intervalos)
+Error: unexpected symbol in:
+"right = TRUE
+table"
+> table(jog$idade)
+
+22 23 24 25 26 27 28 29 30 32 33 
+ 2  1  2  5  1  1  5  1  2  2  1 
+> 
+> 
+> #Exercício nº02
+> 
+> #a
+> 
+> seq(40, 20, by = -4)
+[1] 40 36 32 28 24 20
+> 
+> #b
+> 
+> rep(c(9, 5, 2), times = 3)
+[1] 9 5 2 9 5 2 9 5 2
+> 
+> #c
+> 
+> seq(0, 1, by = 0.2)
+[1] 0.0 0.2 0.4 0.6 0.8 1.0
+> 
+> #d
+> 
+> rep(c(9, 7), each = 3)
+[1] 9 9 9 7 7 7
+> 

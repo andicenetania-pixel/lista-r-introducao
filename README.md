@@ -1,4 +1,4 @@
-# Lista de Exercícios 1
+# Lista de Exercícios 
 
 Disciplina: Introdução ao R  
 Aluna: Tania Andicene  
